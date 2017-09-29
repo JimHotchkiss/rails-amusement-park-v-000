@@ -11,22 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929170612) do
+ActiveRecord::Schema.define(version: 20170929193209) do
 
   create_table "attractions", force: :cascade do |t|
     t.string  "name"
     t.integer "nausea_rating"
-    t.integer "happines_rating"
+    t.integer "happiness_rating"
     t.integer "min_height"
+    t.integer "tickets"
   end
 
-  create_table "attractions_users", id: false, force: :cascade do |t|
+  create_table "rides", id: false, force: :cascade do |t|
     t.integer "user_id",       null: false
     t.integer "attraction_id", null: false
   end
 
-  add_index "attractions_users", ["attraction_id"], name: "index_attractions_users_on_attraction_id"
-  add_index "attractions_users", ["user_id"], name: "index_attractions_users_on_user_id"
+  add_index "rides", ["attraction_id"], name: "index_rides_on_attraction_id"
+  add_index "rides", ["user_id"], name: "index_rides_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string  "name"
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 20170929170612) do
     t.integer "happiness"
     t.integer "tickets"
     t.integer "height"
+    t.boolean "admin",     default: false
   end
 
 end
