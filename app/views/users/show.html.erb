@@ -1,3 +1,10 @@
 <h1>User Show Page</h1>
 
-<%= @user.name %>
+Name: <%= current_user.name %><br>
+Mood: <% if current_user.happiness > 3 %><br>
+        <%= 'happy' %>
+      <% else %>
+        <%= 'Not happy' %>
+      <% end %>
+Tickets: <%= current_user.tickets %>
+Height:  <%= current_user.height %>

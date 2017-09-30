@@ -16,6 +16,7 @@ class Ride < ActiveRecord::Base
       @user.tickets = @user.tickets - @attraction.tickets
       @user.nausea = @user.nausea + @attraction.nausea_rating
       @user.happiness = @user.happiness + @attraction.happiness_rating
+
       @user.save
     end
   end

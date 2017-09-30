@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-root to: 'home#index'
+root to: 'application#home'
+get '/signin', to: 'sessions#new'
 
-get '/users/signup', to: 'users#new'
-post '/users', to: 'users#create'
-get '/users/:id', to: 'users#show', as: 'user' end 
+resources :users
+
+end
