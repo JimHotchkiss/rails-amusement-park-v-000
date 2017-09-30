@@ -6,6 +6,6 @@ root to: 'application#home'
   post "/sessions/create", to: "sessions#create"
   delete "/signout", to: "sessions#destroy"
 
-resources :users
+resources :users, :attractions 
 
 end
