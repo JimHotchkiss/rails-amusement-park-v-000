@@ -11,3 +11,5 @@ Height:  <%= current_user.height %>
 <% if current_user.admin %>
 ADMIN: <%= current_user.admin %>
 <% end %>
+
+<%= link_to "Log Out", signout_path, method: :delete %>
