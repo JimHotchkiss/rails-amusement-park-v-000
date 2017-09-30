@@ -8,3 +8,6 @@ Mood: <% if current_user.happiness > 3 %><br>
       <% end %>
 Tickets: <%= current_user.tickets %>
 Height:  <%= current_user.height %>
+<% if current_user.admin %>
+ADMIN: <%= current_user.admin %>
+<% end %>
