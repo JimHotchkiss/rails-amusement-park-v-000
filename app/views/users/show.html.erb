@@ -1,16 +1,21 @@
 <h1>User Show Page</h1>
+<div>
 
-Name: <%= current_user.name %><br>
-Mood: <% if current_user.happiness > 3 %><br>
-        <%= 'happy' %>
-      <% else %>
-        <%= 'Not happy' %>
-      <% end %>
-Tickets: <%= current_user.tickets %>
-Height:  <%= current_user.height %>
-<% if current_user.admin %>
-ADMIN: <%= current_user.admin %>
-<% end %>
+  <%= flash[:notice] %>
 
-<%= link_to "Log Out", signout_path, method: :delete %>
-<%= link_to "See attractions", attractions_path  %>
+</div>
+
+<div>
+  Name: <%= current_user.name %><br>
+  Mood:    <%=  current_user.mood%><br>
+  Tickets: <%= current_user.tickets %>
+  Height:  <%= current_user.height %>
+  <% if current_user.admin %>
+  ADMIN: <%= current_user.admin %>
+  <% end %>
+</div>
+
+<div class="">
+  <%= link_to "Log Out", signout_path, method: :delete %>
+  <%= link_to "See attractions", attractions_path  %>
+</div>
