@@ -17,13 +17,20 @@
   </tr><br>
 
   <% @attractions.each do |attraction| %>
-  <tr>
-    <td><%= attraction.name %></td><br>
-    <td><%= attraction.tickets %></td><br>
-    <td><%= link_to "Go on #{attraction.name }", attraction_path(attraction) %></td><br>
-    <% end %>
-  </tr>
+  <% if current_user.admin %>
+    <a href="/attractions/<%= attraction.id %>">Show <%= attraction.name%></a><br>
+    <a href="/attractions/new">New Attraction</a>
+    <% else %>
+    <tr>
+      <td><%= attraction.name %></td><br>
+      <td><%= attraction.tickets %></td><br>
+      <td><%= link_to "Go on #{attraction.name }", attraction_path(attraction) %></td><br>
+      <% end %>
+    </tr>
+  <% end %>
+
 </tbody>
+
 
 
 <h1>See attractions</h1>

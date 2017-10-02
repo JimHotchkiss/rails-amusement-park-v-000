@@ -9,8 +9,13 @@
     <p><strong>Tickets:</strong> <%= @attraction.tickets %></p>
   </div>
 
-  <%= form_tag({controller: 'rides', action: 'new'}, method: 'post') do %>
-    <%= hidden_field_tag :user_id, current_user.id %>
-    <%= hidden_field_tag :attraction_id, @attraction.id %>
-    <%= submit_tag "Go on this ride" %>
+  <% if current_user.admin %>
+    <a href="/attractions/<%= @attraction.id %>/edit">Edit Attraction</a>
+  <% else %>
+    <%= form_tag({controller: 'rides', action: 'new'}, method: 'post') do %>
+      <%= hidden_field_tag :user_id, current_user.id %>
+      <%= hidden_field_tag :attraction_id, @attraction.id %>
+      <%= submit_tag "Go on this ride" %>
+  <% end %>
+
   <% end %>
