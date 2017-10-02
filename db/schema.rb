@@ -21,13 +21,10 @@ ActiveRecord::Schema.define(version: 20170930201234) do
     t.integer "tickets"
   end
 
-  create_table "rides", id: false, force: :cascade do |t|
-    t.integer "user_id",       null: false
-    t.integer "attraction_id", null: false
+  create_table "rides", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "attraction_id"
   end
-
-  add_index "rides", ["attraction_id"], name: "index_rides_on_attraction_id"
-  add_index "rides", ["user_id"], name: "index_rides_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string  "name"
